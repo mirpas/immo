@@ -38,6 +38,46 @@ Auth::routes();
 
 Route::get('/dashboard', function() {
     return view('home');
-})->name('dashboard')->middleware('auth');
+})->middleware('auth');
+
+Route::get('/building', 'BuildingController@index')->middleware('auth');
+Route::get('/building/{building}/edit', 'BuildingController@edit')->middleware('auth');
+
+Route::get('/flat', function() {
+    return view('home');
+})->middleware('auth');
+
+Route::get('/tenant', function() {
+    return view('home');
+})->middleware('auth');
+
+Route::get('/contract', function() {
+    return view('home');
+})->middleware('auth');
+
+Route::get('/meter', function() {
+    return view('home');
+})->middleware('auth');
+
+Route::get('/meter-status', function() {
+    return view('home');
+})->middleware('auth');
 
 // POST ROUTES
+
+
+/*
+
+// GET ROUTES
+
+Route::get('/', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
+Route::get('/posts/create', 'PostsController@create');
+Route::get('/posts/{post}', 'PostsController@show');
+
+// POST ROUTES
+
+Route::post('/posts', 'PostsController@store');
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+
+*/
