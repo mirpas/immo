@@ -1,19 +1,19 @@
 <?php
 
 return [
-
-    'main_navigation'               => 'HAUPTMENÜ',
-    'blog'                          => 'Blog',
-    'pages'                         => 'Seiten',
-    'account_settings'              => 'KONTOEINSTELLUNGEN',
+    // DEFAULT
+    'main_navigation'               => 'Hauptmenü',
+    // HEADER
+    'master_data'                   => 'STAMMDATEN',
+    'billing'                       => 'ABRECHNUNG',
+    'settings'                      => 'EINSTELLUNGEN',
+    // MENU
+    'dashboard'                      => 'Übersicht',
+    'building'                      => 'Gebäude',
+    'flat'                          => 'Wohnungen',
+    'tenant'                        => 'Mieter',
+    'contract'                      => 'Verträge',
+    'meter'                         => 'Zähler',
+    'meter_status'                  => 'Zählerstände',
     'profile'                       => 'Profil',
-    'change_password'               => 'Passwort ändern',
-    'multilevel'                    => 'Multi Level',
-    'level_one'                     => 'Level 1',
-    'level_two'                     => 'Level 2',
-    'level_three'                   => 'Level 3',
-    'labels'                        => 'Beschriftungen',
-    'important'                     => 'Wichtig',
-    'warning'                       => 'Warnung',
-    'information'                   => 'Information',
 ];

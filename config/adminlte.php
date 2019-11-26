@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Immobilienverwaltung',
+    'title' => 'Immobilien | Marschall',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -30,12 +30,12 @@ return [
     |
     */
 
-    'logo' => 'Immobilienverwaltung',
+    'logo' => 'Immo Marschall',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Logo',
+    'logo_img_alt' =>  'Logo-Immobilienverwaltung',
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
     'classes_brand_text' => '',
     'classes_content_header' => 'container-fluid',
     'classes_content' => 'container-fluid',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-light-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',
@@ -133,17 +133,11 @@ return [
     */
 
     'use_route_url' => false,
-
-    'dashboard_url' => 'home',
-
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
-
     'login_url' => 'login',
-
     'register_url' => 'register',
-
     'password_reset_url' => 'password/reset',
-
     'password_email_url' => 'password/email',
 
     /*
@@ -173,36 +167,64 @@ return [
     */
 
     'menu' => [
+        //[
+            //'text' => 'search',
+            //'search' => false,
+            //'topnav' => false,
+        //],
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'text' => 'dashboard',
+            'url'  => '/dashboard',
+            'icon' => 'nav-icon fas fa-tachometer-alt',
+            //'can'  => '',
+        ],
+        ['header' => 'master_data'],
+        [
+            'text' => 'building',
+            'url'  => '/building',
+            'icon' => 'nav-icon fas fa-building',
+            //'can'  => '%Laravel Gate Berechtigung%',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'flat',
+            'url'  => '/flat',
+            'icon' => 'nav-icon fas fa-home',
+            //'can'  => '',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
+            'text' => 'tenant',
+            'url'  => '/tenant',
+            'icon' => 'nav-icon fas fa-user',
+            //'can'  => '',
+        ],
+        [
+            'text' => 'contract',
+            'url'  => '/contract',
+            'icon' => 'nav-icon fas fa-file-contract',
+            //'can'  => '',
+        ],
+        [
+            'text' => 'meter',
+            'url'  => '/meter',
+            'icon' => 'nav-icon fas fa-plug',
+            //'can'  => '',
+        ],
+        ['header' => 'billing'],
+        [
+            'text'        => 'meter_status',
+            'url'         => '/meter-status',
+            'icon'        => 'nav-icon fas fa-plug',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '/user',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => 'submenu',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
@@ -212,45 +234,8 @@ return [
                 [
                     'text'    => 'level_one',
                     'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
         ],
     ],
 

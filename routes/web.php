@@ -11,12 +11,33 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+/*
+ * Naming conventions (Tutorial Part 11 from minute 6)
+ *
+ * GET /posts               ->      View all the Posts
+ *
+ * GET /posts/{id}          ->      View a specific Post
+ *
+ * GET /posts/create        ->      Display a form to create a new Post
+ *
+ * POST /posts              ->      Create a new Post in the database (Target for form-action)
+ *
+ * GET /posts/{id}/edit     ->      Display a form to edit a specified Post
+ *
+ * PATCH /posts/{id}        ->      Submit the edit form to this one
+ *
+ * DELETE /posts/{id}       ->      Delete a post
+ *
+ */
+
+// GET ROUTES
+
+Route::permanentRedirect('/', '/dashboard');
 
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/dashboard', function() {
     return view('home');
-})->name('home')->middleware('auth');
+})->name('dashboard')->middleware('auth');
+
+// POST ROUTES
