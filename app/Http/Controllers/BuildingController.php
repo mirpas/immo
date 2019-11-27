@@ -20,16 +20,16 @@ class BuildingController extends Controller
 	        return view('buildings.create');
 	}
 
-	public function store()
+	public function store(Request $request)
 	{
 	        // Validate the form data
-	        $this->validate(request(), [
+	        $this->validate($request, [
 	           'short_name' => 'required',
 	           'zip' => 'required',
 	        ]);
 
 	        // By using the Model::create method ensure that the fillable array in the model is set
-	        Building::create(request(['short_name', 'description', 'street', 'zip', 'city', 'flurnummer', 'ground_area', 'building_area', 'year_of_construction']));
+	        Building::create($request->all());
 
 	        /* ALTERNATIVE
 	        $building = new Building;
@@ -56,5 +56,7 @@ class BuildingController extends Controller
 	public function destroy(Building $building)
 	{
 		//
+		$building->delete();
+		return redirect('/buildings');
 	}
 }

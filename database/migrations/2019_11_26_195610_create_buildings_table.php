@@ -21,13 +21,14 @@ class CreateBuildingsTable extends Migration
             $table->string('zip');
             $table->string('city');
             $table->string('flurnummer')->nullable();
-            $table->string('ground_area');
-            $table->string('building_area');
+            $table->integer('ground_area');
+            $table->integer('building_area');
             $table->year('year_of_construction')->nullable();
             $table->year('year_of_last_renovation')->nullable();
             $table->string('path_to_energieausweis')->nullable();
             $table->integer('building_type_id'); // FK fuer Gebaeudetyp  $table->foreign('user_id')->references('id')->on('users'); SINGULAR (ALSO MODEL NAME)
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

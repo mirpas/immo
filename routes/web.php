@@ -15,18 +15,20 @@ Auth::routes();
 
 Route::permanentRedirect('/', '/dashboard');
 Route::get('/dashboard', function() {
-    return view('home');
+    return view('dashboard');
 })->middleware('auth');
 
 /*** BUILDING ***/
 
-Route::get('/buildings', 'BuildingController@index')->middleware('auth');
-Route::get('/buildings/create', 'BuildingController@create')->middleware('auth');
-Route::post('/buildings', 'BuildingController@store')->middleware('auth');
+//Route::get('/buildings', 'BuildingController@index')->middleware('auth');
+//Route::get('/buildings/create', 'BuildingController@create')->middleware('auth');
+//Route::post('/buildings', 'BuildingController@store')->middleware('auth');
 //Route::get('/buildings/{building}', 'BuildingController@show')->middleware('auth');
-Route::get('/buildings/{building}/edit', 'BuildingController@edit')->middleware('auth');
-Route::patch('/buildings/{building}', 'BuildingController@update')->middleware('auth');
-Route::delete('/buildings/{building}', 'BuildingController@destroy')->middleware('auth');
+//Route::get('/buildings/{building}/edit', 'BuildingController@edit')->middleware('auth');
+//Route::patch('/buildings/{building}', 'BuildingController@update')->middleware('auth');
+//Route::delete('/buildings/{building}', 'BuildingController@destroy')->middleware('auth');
+
+Route::resource('buildings', 'BuildingController')->middleware('auth');
 
 /*
 Route::post('/posts/{post}/comments', 'CommentsController@store');
