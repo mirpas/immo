@@ -31,7 +31,6 @@ class BuildingController extends Controller
 	        // By using the Model::create method ensure that the fillable array in the model is set
 	        Building::create(request(['short_name', 'description', 'street', 'zip', 'city', 'flurnummer', 'ground_area', 'building_area', 'year_of_construction']));
 
-
 	        /* ALTERNATIVE
 	        $building = new Building;
 	        $building->short_name = request('short_name');
@@ -47,13 +46,15 @@ class BuildingController extends Controller
 	        return view('buildings.edit', compact('building'));
 	}
 
-	public function update(Building $building)
+	public function update(Request $request, Building $building)
 	{
-	        //return view('buildings.edit', compact('building'));
+		// VALIDATION !!
+		$building->update($request->all());
+	        return redirect('/buildings');
 	}
 
 	public function destroy(Building $building)
 	{
-	        //return view('buildings.edit', compact('building'));
+		//
 	}
 }

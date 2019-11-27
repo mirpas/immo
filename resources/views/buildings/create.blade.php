@@ -17,52 +17,52 @@
         <!-- /.card-header -->
         <!-- form start -->
         <form role="form" method="POST" action="/buildings">
-            {{ csrf_field() }}
+            @csrf
             <div class="card-body">
 
             <div class="form-group">
                 <label for="short_name">Kurzbezeichnung</label>
-                <input type="text" class="form-control" id="short_name" placeholder="Kurzbezeichnung" name="short_name">
+                <input type="text" class="form-control" id="short_name" placeholder="Kurzbezeichnung" name="short_name" value="">
             </div>
 
             <div class="form-group">
                 <label for="description">Bezeichnung</label>
-                <input type="text" class="form-control" id="description" placeholder="Bezeichnung" name="description">
+                <input type="text" class="form-control" id="description" placeholder="Bezeichnung" name="description" value="">
             </div>
 
             <div class="form-group">
                 <label for="street">Straße</label>
-                <input type="text" class="form-control" id="street" placeholder="Straße" name="street">
+                <input type="text" class="form-control" id="street" placeholder="Straße" name="street" value="">
             </div>
 
             <div class="form-group">
                 <label for="zip">PLZ</label>
-                <input type="text" class="form-control" id="zip" placeholder="PLZ" name="zip">
+                <input type="text" class="form-control" id="zip" placeholder="PLZ" name="zip" value="">
             </div>
 
             <div class="form-group">
                 <label for="city">Stadt</label>
-                <input type="text" class="form-control" id="city" placeholder="Stadt" name="city">
+                <input type="text" class="form-control" id="city" placeholder="Stadt" name="city" value="">
             </div>
 
             <div class="form-group">
-                <label for="flurnummer">flurnummer</label>
-                <input type="text" class="form-control" id="flurnummer" placeholder="flurnummer" name="flurnummer">
+                <label for="flurnummer">Flurnummer</label>
+                <input type="text" class="form-control" id="flurnummer" placeholder="flurnummer" name="flurnummer" value="">
             </div>
 
             <div class="form-group">
                 <label for="ground_area">Grundfläche</label>
-                <input type="text" class="form-control" id="ground_area" placeholder="Grundfläche" name="ground_area">
+                <input type="text" class="form-control" id="ground_area" placeholder="Grundfläche" name="ground_area" value="">
             </div>
 
             <div class="form-group">
                 <label for="building_area">Gebäudefläche</label>
-                <input type="text" class="form-control" id="building_area" placeholder="Gebäudefläche" name="building_area">
+                <input type="text" class="form-control" id="building_area" placeholder="Gebäudefläche" name="building_area" value="">
             </div>
 
             <div class="form-group">
                 <label for="year_of_construction">Baujahr</label>
-                <input type="text" class="form-control" id="year_of_construction" placeholder="Baujahr" name="year_of_construction">
+                <input type="text" class="form-control" id="year_of_construction" placeholder="Baujahr" name="year_of_construction" value="">
             </div>
 
             <div class="form-group">
