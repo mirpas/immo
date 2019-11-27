@@ -17,7 +17,7 @@ $factory->define(Building::class, function (Faker $faker) {
             'building_area' => $faker->numberBetween(150, 499),
             'year_of_construction' => $faker->year,
             'year_of_last_renovation' => $faker->year,
-            'path_to_energieausweis' => '',
+            'path_to_energieausweis' => null,
             'building_type_id' => 1,
 
     ];
