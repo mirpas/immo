@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'layout-fixed layout-navbar-fixed',
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_header' => 'container-fluid',
@@ -181,38 +181,38 @@ return [
         ['header' => 'master_data'],
         [
             'text' => 'building',
-            'url'  => '/building',
+            'url'  => '/buildings',
             'icon' => 'nav-icon fas fa-building',
             //'can'  => '%Laravel Gate Berechtigung%',
         ],
         [
             'text' => 'flat',
-            'url'  => '/flat',
+            'url'  => '/flats',
             'icon' => 'nav-icon fas fa-home',
             //'can'  => '',
         ],
         [
             'text' => 'tenant',
-            'url'  => '/tenant',
+            'url'  => '/tenants',
             'icon' => 'nav-icon fas fa-user',
             //'can'  => '',
         ],
         [
             'text' => 'contract',
-            'url'  => '/contract',
+            'url'  => '/contracts',
             'icon' => 'nav-icon fas fa-file-contract',
             //'can'  => '',
         ],
         [
             'text' => 'meter',
-            'url'  => '/meter',
+            'url'  => '/meters',
             'icon' => 'nav-icon fas fa-plug',
             //'can'  => '',
         ],
         ['header' => 'billing'],
         [
-            'text'        => 'meter_status',
-            'url'         => '/meter-status',
+            'text'        => 'meter_reading',
+            'url'         => '/meter-readings',
             'icon'        => 'nav-icon fas fa-plug',
             'label'       => 4,
             'label_color' => 'success',

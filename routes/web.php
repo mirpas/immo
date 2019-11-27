@@ -11,6 +11,28 @@
 |
 */
 
+Auth::routes();
+
+Route::permanentRedirect('/', '/dashboard');
+Route::get('/dashboard', function() {
+    return view('home');
+})->middleware('auth');
+
+/*** BUILDING ***/
+
+Route::get(	'/buildings', 			'BuildingController@index')->middleware('auth');
+Route::get(	'/buildings/create', 		'BuildingController@create')->middleware('auth');
+Route::post(	'/buildings', 			'BuildingController@store')->middleware('auth');
+//Route::get(	'/buildings/{building}',	'BuildingController@show')->middleware('auth');
+Route::get(	'/buildings/{building}/edit', 	'BuildingController@edit')->middleware('auth');
+Route::patch(	'/buildings/{building}', 	'BuildingController@update')->middleware('auth');
+Route::delete(	'/buildings/{building}', 	'BuildingController@destroy')->middleware('auth');
+
+/*
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+*/
+
+
 /*
  * Naming conventions (Tutorial Part 11 from minute 6)
  *
@@ -29,55 +51,3 @@
  * DELETE /posts/{id}       ->      Delete a post
  *
  */
-
-// GET ROUTES
-
-Route::permanentRedirect('/', '/dashboard');
-
-Auth::routes();
-
-Route::get('/dashboard', function() {
-    return view('home');
-})->middleware('auth');
-
-Route::get('/building', 'BuildingController@index')->middleware('auth');
-Route::get('/building/{building}/edit', 'BuildingController@edit')->middleware('auth');
-
-Route::get('/flat', function() {
-    return view('home');
-})->middleware('auth');
-
-Route::get('/tenant', function() {
-    return view('home');
-})->middleware('auth');
-
-Route::get('/contract', function() {
-    return view('home');
-})->middleware('auth');
-
-Route::get('/meter', function() {
-    return view('home');
-})->middleware('auth');
-
-Route::get('/meter-status', function() {
-    return view('home');
-})->middleware('auth');
-
-// POST ROUTES
-
-
-/*
-
-// GET ROUTES
-
-Route::get('/', 'PostsController@index');
-Route::get('/posts', 'PostsController@index');
-Route::get('/posts/create', 'PostsController@create');
-Route::get('/posts/{post}', 'PostsController@show');
-
-// POST ROUTES
-
-Route::post('/posts', 'PostsController@store');
-Route::post('/posts/{post}/comments', 'CommentsController@store');
-
-*/

@@ -8,12 +8,12 @@ return [
     'billing'                       => 'ABRECHNUNG',
     'settings'                      => 'EINSTELLUNGEN',
     // MENU
-    'dashboard'                      => 'Übersicht',
+    'dashboard'                     => 'Übersicht',
     'building'                      => 'Gebäude',
     'flat'                          => 'Wohnungen',
     'tenant'                        => 'Mieter',
     'contract'                      => 'Verträge',
     'meter'                         => 'Zähler',
-    'meter_status'                  => 'Zählerstände',
+    'meter_reading'                 => 'Zählerstände',
     'profile'                       => 'Profil',
 ];
