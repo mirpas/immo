@@ -181,7 +181,7 @@ return [
         ['header' => 'master_data'],
         [
             'text' => 'building',
-            'url'  => '/buildings',
+            'route'  => 'buildings.index',
             'icon' => 'nav-icon fas fa-building',
             //'can'  => '%Laravel Gate Berechtigung%',
         ],
