@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::permanentRedirect('/', '/dashboard');
 Route::get('/dashboard', function() {
