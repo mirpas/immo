@@ -44,7 +44,7 @@
 					</div>{{-- form-group --}}
 					<div class="form-group">
 						<label for="flurnummer">Flurnummer</label>
-						<input type="text" class="form-control" id="flurnummer" placeholder="flurnummer" name="flurnummer" value="{{ $building->flurnummer }}">
+						<input type="text" class="form-control" id="flurnummer" placeholder="Flurnummer" name="flurnummer" value="{{ $building->flurnummer }}">
 					</div>{{-- form-group --}}
 					<div class="form-group">
 						<label for="year_of_construction">Baujahr</label>
