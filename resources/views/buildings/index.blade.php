@@ -14,34 +14,32 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Kurzname</th>
-              <th>Straße</th>
-              <th>PLZ</th>
-              <th>Ort</th>
-              <th>Grundfläche</th>
-              <th>Wohnfläche</th>
-              <th>Baujahr</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($buildings as $building)
-            <tr>
-              <td>{{ $building->short_name }}</td>
-              <td>{{ $building->street }}</td>
-              <td>{{ $building->zip }}</td>
-              <td>{{ $building->city }}</td>
-              <td>{{ $building->ground_area }}</td>
-              <td>{{ $building->building_area }}</td>
-              <td>{{ $building->year_of_construction }}</td>
-              <td><a href="/buildings/{{ $building->id }}/edit" class="btn btn-block btn-warning btn-xs"><i class="fas fa-edit"></i> Edit</a> </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Kurzname</th>
+                <th>Straße</th>
+                <th>PLZ</th>
+                <th>Ort</th>
+                <th>Baujahr</th>
+                <th style="width: 102px">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($buildings as $building)
+              <tr>
+                <td>{{ $building->short_name }}</td>
+                <td>{{ $building->street }}</td>
+                <td>{{ $building->zip }}</td>
+                <td>{{ $building->city }}</td>
+                <td>{{ $building->year_of_construction }}</td>
+                <td><a href="/buildings/{{ $building->id }}/edit" class="btn btn-block btn-warning btn-xs"><i class="fas fa-edit"></i></a> </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>{{-- /.table-responsive --}}
       </div>
       <!-- /.card-body -->
     </div>

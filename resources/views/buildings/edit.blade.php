@@ -84,35 +84,37 @@
 					</div>{{-- /.card-tools --}}
 				</div>{{-- /.card-header --}}
 				<div class="card-body p-0">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Dateiname</th>
-								<th>Dateigröße</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Energieausweis-10_12_2014.pdf</td>
-								<td>44.9715 kb</td>
-								<td class="text-right py-0 align-middle">
-									<div class="btn-group btn-group-sm">
-										<a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
-										<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Dateiname</th>
+									<th>Dateigröße</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Energieausweis-10_12_2014.pdf</td>
+									<td>44.9715 kb</td>
+									<td class="text-right py-0 align-middle">
+										<div class="btn-group btn-group-sm">
+											<a href="#" class="btn btn-info"><i class="fas fa-eye"></i></a>
+											<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>{{-- /.table-responsive --}}
 				</div> {{-- /.card-body --}}
 			</div>{{-- /.card --}}
 		</div>{{-- /.col-md-6 --}}
 	</div>{{-- /.row --}}
 </form>
 
-<div class="row mb-4">
-	<div class="col-12">
+<div class="row">
+	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-warning float-right" form="editForm">Änderungen speichern</button>
 		<a class="btn btn-default float-right mr-3" href="/buildings" role="button">Abbrechen</a>
 		<form method="POST" action="/buildings/{{ $building->id }}" id="deleteForm">
