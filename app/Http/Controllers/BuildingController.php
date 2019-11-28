@@ -4,58 +4,51 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Building;
+use App\Http\Requests\StoreBuildingRequest;
 
 class BuildingController extends Controller
 {
 	public function index()
-    	{
-        	$buildings = Building::all();
-	        // To order the posts in desc order
-	        //$buildings = Building::latest()->get(); // oldest -> asc
-	        return view('buildings.index', compact('buildings'));
-    	}
+    {
+    	$buildings = Building::all();
+        // To order the posts in desc order
+        //$buildings = Building::latest()->get(); // oldest -> asc
+        return view('buildings.index', compact('buildings'));
+    }
 
 	public function create()
 	{
-	        return view('buildings.create');
+	    return view('buildings.create');
 	}
 
-	public function store(Request $request)
+	public function store(StoreBuildingRequest $request)
 	{
-	        // Validate the form data
-	        $this->validate($request, [
-	           'short_name' => 'required',
-	           'zip' => 'required',
-	        ]);
+        // By using the Model::create method ensure that the fillable array in the model is set
+        Building::create($request->all());
 
-	        // By using the Model::create method ensure that the fillable array in the model is set
-	        Building::create($request->all());
+        /* ALTERNATIVE
+        $building = new Building;
+        $building->short_name = request('short_name');
+        [...]
+        $post->save();
+        */
 
-	        /* ALTERNATIVE
-	        $building = new Building;
-	        $building->short_name = request('short_name');
-	        [...]
-	        $post->save();
-	        */
-
-	        return redirect('/buildings');
+        return redirect('/buildings');
 	}
 
 	public function edit(Building $building)
 	{
-	        return view('buildings.edit', compact('building'));
+	    return view('buildings.edit', compact('building'));
 	}
 
-	public function update(Request $request, Building $building)
+	public function update(StoreBuildingRequest $request, Building $building)
 	{
-		// VALIDATION !!
 		$building->update($request->all());
-	        return redirect('/buildings');
+	    return redirect('/buildings');
 	}
 
 	public function destroy(Building $building)
 	{
-		//
 		$building->delete();
 		return redirect('/buildings');
 	}
