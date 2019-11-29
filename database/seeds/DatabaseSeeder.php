@@ -31,6 +31,23 @@ class DatabaseSeeder extends Seeder
             'description' => 'Gewerbeobjekt'
         ]);
 
-		factory(App\Building::class, 15)->create();
+        App\FlatType::create([
+            'description' => 'Wohnung'
+        ]);
+
+        App\FlatType::create([
+            'description' => 'Gewerbeeinheit'
+        ]);
+
+        App\FlatType::create([
+            'description' => 'Büro'
+        ]);
+
+        App\FlatType::create([
+            'description' => 'Wohngemeinschaft (WG)'
+        ]);
+
+        factory(App\Building::class, 15)->create();
+        factory(App\Flat::class, 15)->create();
     }
 }

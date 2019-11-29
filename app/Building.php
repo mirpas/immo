@@ -33,10 +33,18 @@ class Building extends Model
 	];
 
 	/*
-	 * Get the BuildingType that belongs to the Building
+	 * Get the type that belongs to the building
 	 */
 	public function buildingType()
 	{
 		return $this->belongsTo('App\BuildingType');
 	}
+
+    /*
+     * Get all flats for that building
+     */
+    public function flats()
+    {
+        return $this->hasMany('App\Flat');
+    }
 }

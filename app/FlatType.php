@@ -5,15 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BuildingType extends Model
+class FlatType extends Model
 {
 	use SoftDeletes;
 
 	/*
-	 * Get all buildings for that building type
+	 * Get all flats for that flat type
 	 */
-	public function buildings()
+	public function flats()
 	{
-		return $this->hasMany('App\Building');
+		return $this->hasMany('App\Flat');
 	}
 }
