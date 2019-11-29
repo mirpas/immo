@@ -9,11 +9,34 @@ class Building extends Model
 {
 	use SoftDeletes;
 
-    	protected $fillable = ['short_name', 'description', 'street', 'zip', 'city', 'flurnummer', 'ground_area', 'building_area', 'year_of_construction', 'year_of_last_renovation', 'path_to_energieausweis', 'building_type_id'];
+    protected $fillable = [
+    	'short_name',
+    	'description',
+    	'street',
+    	'zip',
+    	'city',
+    	'flurnummer',
+    	'no_of_floors',
+    	'din_area',
+    	'heated_area',
+    	'useable_area',
+    	'ground_area',
+    	'year_of_construction',
+    	'year_of_last_renovation'
+    ];
 
-    	// default attribute values
+	/*
+	 * Set default attribute values
+	 */
 	protected $attributes = [
-	        'building_type_id' => 1, // nur zu Testzwecken
-	    ];
+		'building_type_id' => 1, // nur zu Testzwecken
+	];
 
+	/*
+	 * Get the BuildingType that belongs to the Building
+	 */
+	public function buildingType()
+	{
+		return $this->belongsTo('App\BuildingType');
+	}
 }

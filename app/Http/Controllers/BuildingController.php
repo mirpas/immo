@@ -12,7 +12,7 @@ class BuildingController extends Controller
     {
     	$buildings = Building::all();
         // To order the posts in desc order
-        //$buildings = Building::latest()->get(); // oldest -> asc
+        //$buildings = Building::latest()->get();
         return view('buildings.index', compact('buildings'));
     }
 
