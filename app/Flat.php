@@ -10,6 +10,8 @@ class Flat extends Model
 	use SoftDeletes;
 
     protected $fillable = [
+		'building_id',
+		'flat_type_id',
 		'short_name',
 		'description',
 		'floor',
@@ -30,7 +32,7 @@ class Flat extends Model
 	 * Set default attribute values
 	 */
 	protected $attributes = [
-		'flat_type_id' => 1, // nur zu Testzwecken
+		'built_in_kitchen' => 0
 	];
 
 	/*

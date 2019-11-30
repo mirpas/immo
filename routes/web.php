@@ -21,8 +21,13 @@ Route::get('/dashboard', function() {
     return view('dashboard');
 })->middleware('auth');
 
-Route::resource('buildings', 'BuildingController')->middleware('auth');
-Route::resource('flats', 'FlatController')->middleware('auth');
+Route::resource('buildings', 'BuildingController', [
+	'except' => 'show']
+)->middleware('auth');
+
+Route::resource('flats', 'FlatController', [
+	'except' => 'show'
+])->middleware('auth');
 /*
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 */

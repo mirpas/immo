@@ -9,7 +9,7 @@
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 
-<form method="POST" action="/buildings/{{ $building->id }}" id="editForm">
+<form method="POST" action="{{ route('buildings.edit', $building->id) }}" id="editForm">
 	@method('PATCH')
 	@csrf
 	<div class="row">
@@ -116,8 +116,8 @@
 <div class="row">
 	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-warning float-right" form="editForm">Änderungen speichern</button>
-		<a class="btn btn-default float-right mr-3" href="/buildings" role="button">Abbrechen</a>
-		<form method="POST" action="/buildings/{{ $building->id }}" id="deleteForm">
+		<a class="btn btn-default float-right mr-3" href="{{ route('buildings.index') }}" role="button">Abbrechen</a>
+		<form method="POST" action="{{ route('buildings.destroy', $building->id) }}" id="deleteForm">
 			@method('DELETE')
 			@csrf
 			<button type="submit" class="btn btn-danger">Gebäude löschen</button>

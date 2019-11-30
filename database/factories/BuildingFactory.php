@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Building::class, function (Faker $faker) {
     return [
-        'building_type_id' => 1, // zu Testzwecken
-        'short_name' => $faker->company,
+        'building_type_id' => $faker->numberBetween(1, 3), // zu Testzwecken
+        'short_name' => $faker->lexify('??'),
         'description' => $faker->company,
         'street' => $faker->streetName . ' ' . $faker->buildingNumber,
         'zip' => $faker->postcode,

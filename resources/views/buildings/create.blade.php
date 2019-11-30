@@ -9,7 +9,7 @@
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 
-<form method="POST" action="/buildings" id="createForm">
+<form method="POST" action="{{ route('buildings.store') }}" id="createForm">
 	@csrf
 	<div class="row">
 		<div class="col-md-6">
@@ -115,7 +115,7 @@
 <div class="row">
 	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-success float-right" form="createForm">Gebäude anlegen</button>
-		<a class="btn btn-default float-right mr-3" href="/buildings" role="button">Abbrechen</a>
+		<a class="btn btn-default float-right mr-3" href="{{ route('buildings.index') }}" role="button">Abbrechen</a>
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 @stop

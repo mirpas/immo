@@ -10,7 +10,8 @@ class Building extends Model
 	use SoftDeletes;
 
     protected $fillable = [
-    	'short_name',
+    	'building_type_id',
+        'short_name',
     	'description',
     	'street',
     	'zip',

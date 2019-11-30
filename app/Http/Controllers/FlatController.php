@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Flat;
+use App\Building;
+use App\FlatType;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreFlatRequest;
 
 class FlatController extends Controller
 {
@@ -14,7 +17,9 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        $flats = Flat::all()->sortBy('building_id');
+
+        return view('flats.index', compact('flats'));
     }
 
     /**
@@ -24,7 +29,10 @@ class FlatController extends Controller
      */
     public function create()
     {
-        //
+        return view('flats.create', [
+            'buildings' => Building::all(),
+            'flatTypes' => FlatType::all(),
+        ]);
     }
 
     /**
@@ -33,20 +41,11 @@ class FlatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFlatRequest $request)
     {
-        //
-    }
+        Flat::create($request->validated());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Flat  $flat
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Flat $flat)
-    {
-        //
+        return redirect()->route('flats.index');
     }
 
     /**
@@ -57,7 +56,11 @@ class FlatController extends Controller
      */
     public function edit(Flat $flat)
     {
-        //
+        return view('flats.edit', [
+            'flat' => $flat,
+            'buildings' => Building::all(),
+            'flatTypes' => FlatType::all(),
+        ]);
     }
 
     /**
@@ -67,9 +70,11 @@ class FlatController extends Controller
      * @param  \App\Flat  $flat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Flat $flat)
+    public function update(StoreFlatRequest $request, Flat $flat)
     {
-        //
+        $flat->update($request->all());
+
+        return redirect()->route('flats.index');
     }
 
     /**
@@ -80,6 +85,8 @@ class FlatController extends Controller
      */
     public function destroy(Flat $flat)
     {
-        //
+        $flat->delete();
+
+        return redirect()->route('flats.index');
     }
 }
