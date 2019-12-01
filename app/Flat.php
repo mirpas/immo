@@ -58,4 +58,20 @@ class Flat extends Model
 	{
 		return $this->belongsToMany('App\Meter')->withTimestamps();
 	}
+
+    /*
+     * Get the contact from the owner of the flat (WEG)
+     */
+    public function contact()
+    {
+        return $this->belongsTo('App\Contact');
+    }
+
+    /*
+     * Get all contracts for that flat
+     */
+    public function contracts()
+    {
+        return $this->hasMany('App\Contract');
+    }
 }

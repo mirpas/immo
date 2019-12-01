@@ -48,4 +48,12 @@ class Building extends Model
     {
         return $this->hasMany('App\Flat');
     }
+
+    /*
+     * Get the contact from the owner of the building
+     */
+    public function contact()
+    {
+        return $this->belongsTo('App\Contact');
+    }
 }

@@ -32,6 +32,14 @@ Route::resource('flats', 'FlatController', [
 Route::resource('meters', 'MeterController', [
 	'except' => 'show'
 ])->middleware('auth');
+
+Route::resource('contacts', 'ContactController', [
+	'except' => 'show'
+])->middleware('auth');
+
+Route::resource('contracts', 'ContractController', [
+	'except' => 'show'
+])->middleware('auth');
 /*
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 */

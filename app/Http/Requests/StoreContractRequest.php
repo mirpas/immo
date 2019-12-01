@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreMeterRequest extends FormRequest
+class StoreContractRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class StoreMeterRequest extends FormRequest
     public function rules()
     {
         return [
-            'meter_type_id' => 'required',
-            'ident' => 'nullable',
-            'unit' => 'required',
-            'info' => 'nullable',
-            'geeicht_am' => 'nullable',
-            'photo' => 'nullable',
+            'flat_id' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date',
+            'notice_period' => 'nullable',
+            'unterschrift' => 'nullable',
         ];
     }
 }

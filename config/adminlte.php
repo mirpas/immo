@@ -192,8 +192,8 @@ return [
             //'can'  => '',
         ],
         [
-            'text' => 'tenant',
-            'url'  => '/tenants',
+            'text' => 'contact',
+            'url'  => '/contacts',
             'icon' => 'nav-icon fas fa-user',
             //'can'  => '',
         ],

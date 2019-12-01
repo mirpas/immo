@@ -11,7 +11,7 @@ return [
     'dashboard'                     => 'Übersicht',
     'building'                      => 'Gebäude',
     'flat'                          => 'Wohnungen',
-    'tenant'                        => 'Mieter',
+    'contact'                       => 'Kontakte',
     'contract'                      => 'Verträge',
     'meter'                         => 'Zähler',
     'meter_reading'                 => 'Zählerstände',
