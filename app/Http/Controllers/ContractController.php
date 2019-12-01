@@ -43,7 +43,8 @@ class ContractController extends Controller
      */
     public function store(StoreContractRequest $request)
     {
-        Contract::create($request->all());
+        $contract = Contract::create($request->all());
+        $contract->contacts()->sync($request->contacts);
 
         return redirect()->route('contracts.index');
     }
@@ -72,7 +73,10 @@ class ContractController extends Controller
      */
     public function update(StoreContractRequest $request, Contract $contract)
     {
-        //
+        $contract->update($request->all());
+        $contract->contacts()->sync($request->contacts);
+
+        return redirect()->route('contracts.index');
     }
 
     /**
@@ -83,6 +87,8 @@ class ContractController extends Controller
      */
     public function destroy(Contract $contract)
     {
-        //
+        $contract->delete();
+
+        return redirect()->route('contracts.index');
     }
 }

@@ -79,7 +79,7 @@
 <div class="row">
 	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-success float-right" form="createForm">Zähler anlegen</button>
-		<a class="btn btn-unitault float-right mr-3" href="{{ route('meters.index') }}" role="button">Abbrechen</a>
+		<a class="btn btn-default float-right mr-3" href="{{ route('meters.index') }}" role="button">Abbrechen</a>
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 @stop

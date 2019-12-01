@@ -54,7 +54,14 @@
 					</div>{{-- /.card-tools --}}
 				</div>{{-- /.card-header --}}
 				<div class="card-body">
-
+					<div class="form-group">
+						@foreach($contacts as $contact)
+							<div class="form-check">
+	                          <input class="form-check-input" type="checkbox" value="{{ $contact->id }}" name="contacts[]">
+	                          <label class="form-check-label">{{ $contact->surname . ', ' . $contact->prename }}</label>
+	                        </div>{{-- /.form-check --}}
+						@endforeach
+                    </div>{{-- /.form-group --}}
 				</div><!-- /.card-body -->
 			</div><!-- /.card -->
 			<div class="card">
@@ -67,7 +74,7 @@
 				<div class="card-body">
 					<div class="form-group">
 						<input type="hidden" id="unterschrift" name="unterschrift" value="">
-						<canvas id="canvas">
+						<canvas class="border border-success" id="canvas">
 						{{-- signpad - js section below the page --}}
 						</canvas>
 					</div>{{-- /.form-group --}}
@@ -80,7 +87,7 @@
 <div class="row">
 	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-success float-right" form="createForm">Vertrag anlegen</button>
-		<a class="btn btn-unitault float-right mr-3" href="{{ route('contracts.index') }}" role="button">Abbrechen</a>
+		<a class="btn btn-default float-right mr-3" href="{{ route('contracts.index') }}" role="button">Abbrechen</a>
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 @stop

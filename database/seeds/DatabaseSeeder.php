@@ -141,10 +141,20 @@ class DatabaseSeeder extends Seeder
             'year_of_last_renovation' => 2013,
         ]);
 
+        for($i = 1; $i <= 8; $i++)
+        {
+            DB::table('contact_contract')->insert([
+                'contact_id' => random_int(1, 30),
+                'contract_id' => $i,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
 
         //factory(App\Building::class, 10)->create();
         factory(App\Flat::class, 10)->create();
         factory(App\Contact::class, 30)->create();
-        factory(App\Contract::class, 12)->create();
+        factory(App\Contract::class, 8)->create();
     }
 }

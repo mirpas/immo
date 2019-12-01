@@ -10,6 +10,7 @@
 </div>{{-- /.row --}}
 
 <form method="POST" action="{{ route('contracts.update', $contract->id) }}" id="createForm">
+	@method('PATCH')
 	@csrf
 	<div class="row">
 		<div class="col-md-6">
@@ -54,7 +55,14 @@
 					</div>{{-- /.card-tools --}}
 				</div>{{-- /.card-header --}}
 				<div class="card-body">
-
+					<div class="form-group">
+						@foreach($contacts as $contact)
+							<div class="form-check">
+	                          <input class="form-check-input" type="checkbox" value="{{ $contact->id }}" name="contacts[]" {{ $contract->contacts->contains($contact->id) ? 'checked' : '' }}>
+	                          <label class="form-check-label">{{ $contact->surname . ', ' . $contact->prename }}</label>
+	                        </div>{{-- /.form-check --}}
+						@endforeach
+                    </div>{{-- /.form-group --}}
 				</div><!-- /.card-body -->
 			</div><!-- /.card -->
 			<div class="card">
@@ -65,9 +73,11 @@
 					</div>{{-- /.card-tools --}}
 				</div>{{-- /.card-header --}}
 				<div class="card-body">
+					@if($contract->unterschrift)
 					<div class="form-group">
 						<img src="{{ $contract->unterschrift }}" alt="unterschrift">
 					</div>{{-- /.form-group --}}
+					@endif
 				</div><!-- /.card-body -->
 			</div><!-- /.card -->
 		</div>{{-- /.col-md-6 --}}
@@ -77,7 +87,12 @@
 <div class="row">
 	<div class="col-12 mb-3">
 		<button type="submit" class="btn btn-warning float-right" form="createForm">Änderungen speichern</button>
-		<a class="btn btn-unitault float-right mr-3" href="{{ route('contracts.index') }}" role="button">Abbrechen</a>
+		<a class="btn btn-default float-right mr-3" href="{{ route('contracts.index') }}" role="button">Abbrechen</a>
+		<form method="POST" action="{{ route('contracts.destroy', $contract->id) }}" id="deleteForm">
+			@method('DELETE')
+			@csrf
+			<button type="submit" class="btn btn-danger">Vertrag löschen</button>
+		</form>
 	</div>{{-- /.col-12 --}}
 </div>{{-- /.row --}}
 @stop
