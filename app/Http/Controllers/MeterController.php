@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Meter;
 use App\Flat;
 use App\Building;
-use App\FlatType;
+use App\MeterType;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreFlatRequest;
+use App\Http\Requests\StoreMeterRequest;
 
-class FlatController extends Controller
+class MeterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class FlatController extends Controller
      */
     public function index()
     {
-        $flats = Flat::all()->sortBy('floor')->sortBy('building_id');
-
-        return view('flats.index', compact('flats'));
+        return view('meters.index', [
+            'meters' => Meter::all(),
+        ]);
     }
 
     /**
@@ -29,9 +30,9 @@ class FlatController extends Controller
      */
     public function create()
     {
-        return view('flats.create', [
+        return view('meters.create', [
             'buildings' => Building::all(),
-            'flatTypes' => FlatType::all(),
+            'meterTypes' => MeterType::all(),
         ]);
     }
 
@@ -41,25 +42,26 @@ class FlatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFlatRequest $request)
+    public function store(StoreMeterRequest $request)
     {
-        Flat::create($request->all());
+        $meter = Meter::create($request->all());
+        $meter->flats()->sync($request->flats);
 
-        return redirect()->route('flats.index');
+        return redirect()->route('meters.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Flat  $flat
+     * @param  \App\Meter  $meter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Flat $flat)
+    public function edit(Meter $meter)
     {
-        return view('flats.edit', [
-            'flat' => $flat,
+        return view('meters.edit', [
+            'meter' => $meter,
             'buildings' => Building::all(),
-            'flatTypes' => FlatType::all(),
+            'meterTypes' => MeterType::all(),
         ]);
     }
 
@@ -67,26 +69,27 @@ class FlatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Flat  $flat
+     * @param  \App\Meter  $meter
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreFlatRequest $request, Flat $flat)
+    public function update(StoreMeterRequest $request, Meter $meter)
     {
-        $flat->update($request->all());
+        $meter->update($request->all());
+        $meter->flats()->sync($request->flats);
 
-        return redirect()->route('flats.index');
+        return redirect()->route('meters.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Flat  $flat
+     * @param  \App\Meter  $meter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flat $flat)
+    public function destroy(Meter $meter)
     {
-        $flat->delete();
+        $meter->delete();
 
-        return redirect()->route('flats.index');
+        return redirect()->route('meters.index');
     }
 }

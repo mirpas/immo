@@ -17,7 +17,7 @@ Auth::routes([
 
 Route::permanentRedirect('/', '/dashboard');
 
-Route::get('/dashboard', function() {
+Route::get('dashboard', function() {
     return view('dashboard');
 })->middleware('auth');
 
@@ -26,6 +26,10 @@ Route::resource('buildings', 'BuildingController', [
 )->middleware('auth');
 
 Route::resource('flats', 'FlatController', [
+	'except' => 'show'
+])->middleware('auth');
+
+Route::resource('meters', 'MeterController', [
 	'except' => 'show'
 ])->middleware('auth');
 /*

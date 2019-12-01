@@ -50,4 +50,12 @@ class Flat extends Model
 	{
 		return $this->belongsTo('App\Building');
 	}
+
+	/*
+	 * Get the meters that belong to the flat
+	 */
+	public function meters()
+	{
+		return $this->belongsToMany('App\Meter')->withTimestamps();
+	}
 }

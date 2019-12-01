@@ -47,6 +47,49 @@ class DatabaseSeeder extends Seeder
             'description' => 'Wohngemeinschaft (WG)'
         ]);
 
+        App\MeterType::create([
+            'description' => 'Kaltwasser'
+        ]);
+
+        App\MeterType::create([
+            'description' => 'Warmwasser'
+        ]);
+
+        App\MeterType::create([
+            'description' => 'Strom'
+        ]);
+
+        App\MeterType::create([
+            'description' => 'Personen'
+        ]);
+
+        App\Meter::create([
+            'meter_type_id' => '1',
+            'ident' => '912312846513',
+            'unit' => 'm3',
+            'info' => 'in der Waschküche',
+            'geeicht_am' => '2018-02-03',
+            'photo' => null,
+        ]);
+
+        App\Meter::create([
+            'meter_type_id' => '3',
+            'ident' => '784678132167',
+            'unit' => 'kWh',
+            'info' => 'unter der Treppe',
+            'geeicht_am' => '2019-06-09',
+            'photo' => null,
+        ]);
+
+        App\Meter::create([
+            'meter_type_id' => '4',
+            'ident' => null,
+            'unit' => 'Pers.',
+            'info' => null,
+            'geeicht_am' => null,
+            'photo' => null,
+        ]);
+
         App\Building::create([
             'building_type_id' => 3,
             'short_name' => 'NES-INDSTR-2',
