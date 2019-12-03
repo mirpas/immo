@@ -167,11 +167,13 @@ return [
     */
 
     'menu' => [
-        //[
-            //'text' => 'search',
+        [
+            'text' => 'building_selector',
             //'search' => false,
-            //'topnav' => false,
-        //],
+            'topnav' => true,
+            'icon' => 'fas fa-building',
+            'route' => 'buildings.select',
+        ],
         [
             'text' => 'dashboard',
             'url'  => '/dashboard',
@@ -276,17 +278,22 @@ return [
     'plugins' => [
         [
             'name' => 'Datatables',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/jquery.dataTables.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],

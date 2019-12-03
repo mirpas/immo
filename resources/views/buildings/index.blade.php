@@ -23,7 +23,7 @@
                 <th>PLZ</th>
                 <th>Ort</th>
                 <th>Baujahr</th>
-                <th style="width: 102px">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
