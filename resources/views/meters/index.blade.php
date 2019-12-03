@@ -13,9 +13,9 @@
           <a href="{{ route('meters.create') }}" class="btn btn-block btn-success btn-xs mr-1"><i class="fas fa-plus"></i></a>
         </div>
       </div>
-      <div class="card-body p-0">
+      <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-bordered table-striped dataTable" id="meters">
             <thead>
               <tr>
                 <th>Gebäude</th>
@@ -24,7 +24,7 @@
                 <th>Einheit</th>
                 <th>Geeicht</th>
                 <th>Info</th>
-                <th style="width: 102px">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -48,4 +48,12 @@
     <!-- /TABLE -->
   </div>
 </div>
+@stop
+
+@section('js')
+<script>
+  $(document).ready(function() {
+    $('#meters').DataTable();
+  });
+</script>
 @stop

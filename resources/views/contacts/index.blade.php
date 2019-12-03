@@ -23,7 +23,7 @@
                 <th>Straße</th>
                 <th>PLZ</th>
                 <th>Ort</th>
-                <th style="width: 102px">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>

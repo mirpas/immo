@@ -167,13 +167,13 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'building_selector',
-            //'search' => false,
-            'topnav' => true,
-            'icon' => 'fas fa-building',
-            'route' => 'buildings.select',
-        ],
+        // [
+        //     'text' => 'building_selector',
+        //     //'search' => false,
+        //     'topnav' => true,
+        //     'icon' => 'fas fa-building',
+        //     'route' => '',
+        // ],
         [
             'text' => 'dashboard',
             'url'  => '/dashboard',

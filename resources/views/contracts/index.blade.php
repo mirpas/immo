@@ -13,9 +13,9 @@
           <a href="{{ route('contracts.create') }}" class="btn btn-block btn-success btn-xs mr-1"><i class="fas fa-plus"></i></a>
         </div>
       </div>
-      <div class="card-body p-0">
+      <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-bordered table-striped dataTable" id="contracts">
             <thead>
               <tr>
                 <th>Gebäude</th>
@@ -23,7 +23,7 @@
                 <th>Mieter</th>
                 <th>Start</th>
                 <th>Ende</th>
-                <th style="width: 102px">Action</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -50,4 +50,12 @@
     <!-- /TABLE -->
   </div>
 </div>
+@stop
+
+@section('js')
+<script>
+  $(document).ready(function() {
+    $('#contracts').DataTable();
+  });
+</script>
 @stop

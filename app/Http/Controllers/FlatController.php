@@ -17,7 +17,8 @@ class FlatController extends Controller
      */
     public function index()
     {
-        $flats = Flat::all()->sortBy('floor')->sortBy('building_id');
+        session(['building_id' => 1]);
+        $flats = Flat::where('building_id', session('building_id'))->orderBy('floor')->get();
 
         return view('flats.index', compact('flats'));
     }
