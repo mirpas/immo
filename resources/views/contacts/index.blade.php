@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content_header')
-<h1 class="m-0 text-dark">Übersicht Zähler</h1>
+<h1 class="m-0 text-dark">Übersicht Kontakte</h1>
 @stop
 @section('content')
 <div class="row">
@@ -8,9 +8,9 @@
     <!-- TABLE -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title"><i class="fas fa-plug"></i> Meter</h3>
+        <h3 class="card-title"><i class="fas fa-plug"></i> Contacts</h3>
         <div class="card-tools">
-          <a href="{{ route('meters.create') }}" class="btn btn-block btn-success btn-xs mr-1"><i class="fas fa-plus"></i></a>
+          <a href="{{ route('contacts.create') }}" class="btn btn-block btn-success btn-xs mr-1"><i class="fas fa-plus"></i></a>
         </div>
       </div>
       <div class="card-body p-0">
@@ -18,25 +18,23 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Gebäude</th>
-                <th>Typ</th>
-                <th>Ident-Nr.</th>
-                <th>Einheit</th>
-                <th>Geeicht</th>
-                <th>Info</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Straße</th>
+                <th>PLZ</th>
+                <th>Ort</th>
                 <th style="width: 102px">Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($meters as $meter)
+              @foreach($contacts as $contact)
               <tr>
-                <td>{{ $meter->flats->first()->building->short_name ?? ''}}</td>
-                <td>{{ $meter->meterType->description }}</td>
-                <td>{{ $meter->ident }}</td>
-                <td>{{ $meter->unit }}</td>
-                <td>{{ $meter->geeicht_am }}</td>
-                <td>{{ $meter->info }}</td>
-                <td><a href="{{ route('meters.edit', $meter->id) }}" class="btn btn-block btn-warning btn-xs"><i class="fas fa-edit"></i></a> </td>
+                <td>{{ $contact->prename }}</td>
+                <td>{{ $contact->surname }}</td>
+                <td>{{ $contact->street }}</td>
+                <td>{{ $contact->zip }}</td>
+                <td>{{ $contact->city }}</td>
+                <td><a href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-block btn-warning btn-xs"><i class="fas fa-edit"></i></a> </td>
               </tr>
               @endforeach
             </tbody>
