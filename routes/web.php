@@ -15,11 +15,13 @@ Auth::routes([
 	'register' => false
 ]);
 
-Route::permanentRedirect('/', '/dashboard');
+Route::permanentRedirect('/', 'buildings/select');
 
 Route::get('dashboard', function() {
     return view('dashboard');
-})->middleware('auth');
+})
+	->middleware('auth')
+	->name('dashboard');
 
 Route::resource('meters', 'MeterController')
 	->except(['show'])
@@ -40,3 +42,11 @@ Route::resource('buildings', 'BuildingController')
 Route::resource('flats', 'FlatController')
 	->except(['show'])
 	->middleware('auth');
+
+Route::get('buildings/select', 'BuildingSelectController@index')
+	->middleware('auth')
+	->name('buildings.select.index');
+
+Route::post('buildings/select', 'BuildingSelectController@select')
+	->middleware('auth')
+	->name('buildings.select.select');
