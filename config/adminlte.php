@@ -180,6 +180,12 @@ return [
             'icon' => 'nav-icon fas fa-tachometer-alt',
             //'can'  => '',
         ],
+        [
+            'text' => 'contact',
+            'url'  => '/contacts',
+            'icon' => 'nav-icon fas fa-user',
+            //'can'  => '',
+        ],
         ['header' => 'master_data'],
         [
             'text' => 'building',
@@ -194,12 +200,6 @@ return [
             //'can'  => '',
         ],
         [
-            'text' => 'contact',
-            'url'  => '/contacts',
-            'icon' => 'nav-icon fas fa-user',
-            //'can'  => '',
-        ],
-        [
             'text' => 'contract',
             'url'  => '/contracts',
             'icon' => 'nav-icon fas fa-file-contract',
@@ -210,34 +210,6 @@ return [
             'url'  => '/meters',
             'icon' => 'nav-icon fas fa-plug',
             //'can'  => '',
-        ],
-        ['header' => 'billing'],
-        [
-            'text'        => 'meter_reading',
-            'url'         => '/meter-readings',
-            'icon'        => 'nav-icon fas fa-plug',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'settings'],
-        [
-            'text' => 'profile',
-            'url'  => '/user',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text'    => 'submenu',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                ],
-            ],
         ],
     ],
 

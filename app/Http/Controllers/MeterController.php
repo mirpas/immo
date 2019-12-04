@@ -31,7 +31,7 @@ class MeterController extends Controller
     public function create()
     {
         return view('meters.create', [
-            'buildings' => Building::all(),
+            'flats' => Flat::where('building_id', session('building_id'))->get(),
             'meterTypes' => MeterType::all(),
         ]);
     }
@@ -60,7 +60,7 @@ class MeterController extends Controller
     {
         return view('meters.edit', [
             'meter' => $meter,
-            'buildings' => Building::all(),
+            'flats' => Flat::where('building_id', session('building_id'))->get(),
             'meterTypes' => MeterType::all(),
         ]);
     }

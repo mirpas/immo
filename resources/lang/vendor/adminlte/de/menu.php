@@ -8,9 +8,9 @@ return [
     'billing'                       => 'ABRECHNUNG',
     'settings'                      => 'EINSTELLUNGEN',
     // MENU
-    'dashboard'                     => 'Übersicht',
+    'dashboard'                     => 'Dashboard',
     'building'                      => 'Gebäude',
-    'flat'                          => 'Wohnungen',
+    'flat'                          => 'Einheiten',
     'contact'                       => 'Kontakte',
     'contract'                      => 'Verträge',
     'meter'                         => 'Zähler',

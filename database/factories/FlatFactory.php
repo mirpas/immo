@@ -9,7 +9,7 @@ $factory->define(Flat::class, function (Faker $faker) {
     return [
         'flat_type_id' => $faker->numberBetween(1, 4),
         'building_id' => $faker->numberBetween(1, 3),
-        'short_name' => $faker->randomElement(['EG', 'OG1', 'OG2']) .' '. $faker->randomElement(['links', 'rechts', '']),
+        'short_name' => $faker->randomElement(['EG', 'OG 1', 'OG 2', 'OG 3']) .' '. $faker->randomElement(['links', 'rechts', '']),
         'description'=> $faker->company,
         'floor' => $faker->numberBetween(1, 4),
         'no_of_rooms' =>$faker->numberBetween(1, 4),

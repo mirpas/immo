@@ -18,7 +18,6 @@
           <table class="table table-bordered table-striped dataTable" id="contracts">
             <thead>
               <tr>
-                <th>Gebäude</th>
                 <th>Einheit</th>
                 <th>Mieter</th>
                 <th>Start</th>
@@ -29,7 +28,6 @@
             <tbody>
               @foreach($contracts as $contract)
               <tr>
-                <td>{{ $contract->flat->building->short_name }}</td>
                 <td>{{ $contract->flat->short_name }}</td>
                 <td>
                 @foreach($contract->contacts as $contact)

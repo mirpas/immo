@@ -56,4 +56,13 @@ class Building extends Model
     {
         return $this->belongsTo('App\Contact');
     }
+
+    /**
+     * Get all of the contracts for the building.
+     */
+    public function contracts()
+    {
+        return $this->hasManyThrough('App\Contract', 'App\Flat');
+    }
+
 }

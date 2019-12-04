@@ -30,7 +30,7 @@ class FlatController extends Controller
     public function create()
     {
         return view('flats.create', [
-            'buildings' => Building::all(),
+            'buildings' => Building::find(session('building_id')),
             'flatTypes' => FlatType::all(),
         ]);
     }
@@ -58,7 +58,7 @@ class FlatController extends Controller
     {
         return view('flats.edit', [
             'flat' => $flat,
-            'buildings' => Building::all(),
+            'buildings' => Building::find(session('building_id')),
             'flatTypes' => FlatType::all(),
         ]);
     }

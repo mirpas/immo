@@ -18,7 +18,6 @@
           <table class="table table-bordered table-striped dataTable" id="flats">
             <thead>
               <tr>
-                <th>Gebäude</th>
                 <th>Kurzname</th>
                 <th>Typ</th>
                 <th>Stockwerk</th>
@@ -29,7 +28,6 @@
             <tbody>
               @foreach($flats as $flat)
               <tr>
-                <td>{{ $flat->building->short_name }}</td>
                 <td>{{ $flat->short_name }}</td>
                 <td>{{ $flat->flatType->description }}</td>
                 <td>{{ $flat->floor }}</td>

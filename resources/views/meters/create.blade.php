@@ -59,15 +59,11 @@
 				</div>{{-- /.card-header --}}
 				<div class="card-body">
 					<div class="form-group">
-						@foreach($buildings as $building)
-							<p><strong>{{ $building->short_name }}</strong></p>
-							@foreach($building->flats as $flat)
-								<div class="form-check">
-		                          <input class="form-check-input" type="checkbox" value="{{ $flat->id }}" name="flats[]">
-		                          <label class="form-check-label">{{ $flat->short_name }}</label>
-		                        </div>{{-- /.form-check --}}
-							@endforeach
-							<hr>
+						@foreach($flats as $flat)
+							<div class="form-check">
+	                          <input class="form-check-input" type="checkbox" value="{{ $flat->id }}" name="flats[]">
+	                          <label class="form-check-label">{{ $flat->short_name . ' (' . $flat->building->short_name . ')' }}</label>
+	                        </div>{{-- /.form-check --}}
 						@endforeach
                     </div>{{-- /.form-group --}}
 				</div><!-- /.card-body -->

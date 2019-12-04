@@ -18,7 +18,6 @@
           <table class="table table-bordered table-striped dataTable" id="meters">
             <thead>
               <tr>
-                <th>Gebäude</th>
                 <th>Typ</th>
                 <th>Ident-Nr.</th>
                 <th>Einheit</th>
@@ -30,7 +29,6 @@
             <tbody>
               @foreach($meters as $meter)
               <tr>
-                <td>{{ $meter->flats->first()->building->short_name ?? ''}}</td>
                 <td>{{ $meter->meterType->description }}</td>
                 <td>{{ $meter->ident }}</td>
                 <td>{{ $meter->unit }}</td>

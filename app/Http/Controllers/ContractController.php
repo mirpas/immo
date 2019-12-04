@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contract;
 use App\Flat;
 use App\Contact;
+use App\Building;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreContractRequest;
 
@@ -18,7 +19,7 @@ class ContractController extends Controller
     public function index()
     {
         return view('contracts.index', [
-            'contracts' => Contract::all(),
+            'contracts' => Building::find( session('building_id')['building_id'] )->contracts,
         ]);
     }
 
@@ -31,7 +32,7 @@ class ContractController extends Controller
     {
         return view('contracts.create', [
             'contacts' => Contact::all(),
-            'flats' => Flat::all(),
+            'flats' => Flat::where('building_id', session('building_id'))->get(),
         ]);
     }
 
@@ -59,7 +60,7 @@ class ContractController extends Controller
     {
         return view('contracts.edit', [
             'contract' => $contract,
-            'flats' => Flat::all(),
+            'flats' => Flat::where('building_id', session('building_id'))->get(),
             'contacts' => Contact::all(),
         ]);
     }
