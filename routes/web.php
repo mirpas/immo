@@ -15,33 +15,33 @@ Auth::routes([
 	'register' => false
 ]);
 
-Route::permanentRedirect('/', 'buildings/select');
+Route::permanentRedirect('/', '/dashboard');
 
 Route::get('dashboard', function() {
     return view('dashboard');
 })
-	->middleware('auth')
+	->middleware('auth', 'selected.building')
 	->name('dashboard');
 
 Route::resource('meters', 'MeterController')
 	->except(['show'])
-	->middleware('auth');
+	->middleware('auth', 'selected.building');
 
 Route::resource('contacts', 'ContactController')
 	->except(['show'])
-	->middleware('auth');
+	->middleware('auth', 'selected.building');
 
 Route::resource('contracts', 'ContractController')
 	->except(['show'])
-	->middleware('auth');
+	->middleware('auth', 'selected.building');
 
 Route::resource('buildings', 'BuildingController')
 	->except(['show'])
-	->middleware('auth');
+	->middleware('auth', 'selected.building');
 
 Route::resource('flats', 'FlatController')
 	->except(['show'])
-	->middleware('auth');
+	->middleware('auth', 'selected.building');
 
 Route::get('buildings/select', 'BuildingSelectController@index')
 	->middleware('auth')
