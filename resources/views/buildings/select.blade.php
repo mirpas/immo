@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="de"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Immobilien | Marschall</title>
-    <link rel="stylesheet" href="http://immo.localhost/vendor/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="http://immo.localhost/vendor/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="http://immo.localhost/vendor/datatables/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css">
-    <link rel="stylesheet" href="http://immo.localhost/vendor/icheck-bootstrap/icheck-bootstrap.min.css">
-    <link rel="stylesheet" href="http://immo.localhost/vendor/adminlte/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
+@extends('adminlte::master')
 
-<body class="login-page pace-done" cz-shortcut-listen="true" style="min-height: 447px;"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
-  <div class="pace-progress-inner"></div>
-</div>
-<div class="pace-activity"></div></div>
+@section('adminlte_css_pre')
+    <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+@stop
+
+@section('adminlte_css')
+    @stack('css')
+    @yield('css')
+@stop
+
+@section('classes_body', 'login-page')
+
+
+@section('body')
 
 <div class="login-box">
     <div class="login-logo">
@@ -52,11 +48,11 @@
     </form>
 </div>
 
-<script src="http://immo.localhost/vendor/jquery/jquery.min.js"></script>
-<script src="http://immo.localhost/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="http://immo.localhost/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<script src="http://immo.localhost/vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="http://immo.localhost/vendor/adminlte/dist/js/adminlte.min.js"></script>
 
-</body>
-</html>
+@stop
+
+@section('adminlte_js')
+    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    @stack('js')
+    @yield('js')
+@stop
