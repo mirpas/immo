@@ -20,28 +20,34 @@ Route::permanentRedirect('/', '/dashboard');
 Route::get('dashboard', function() {
     return view('dashboard');
 })
-	->middleware('auth', 'selected.building')
-	->name('dashboard');
+	->name('dashboard')
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::resource('meters', 'MeterController')
 	->except(['show'])
-	->middleware('auth', 'selected.building');
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::resource('contacts', 'ContactController')
 	->except(['show'])
-	->middleware('auth', 'selected.building');
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::resource('contracts', 'ContractController')
 	->except(['show'])
-	->middleware('auth', 'selected.building');
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::resource('buildings', 'BuildingController')
 	->except(['show'])
-	->middleware('auth', 'selected.building');
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::resource('flats', 'FlatController')
 	->except(['show'])
-	->middleware('auth', 'selected.building');
+	->middleware('auth')
+	->middleware('selected.building');
 
 Route::get('buildings/select', 'BuildingSelectController@index')
 	->middleware('auth')
