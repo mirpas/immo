@@ -7,8 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Contact::class, function (Faker $faker) {
     return [
-        'building_id' => $faker->numberBetween(1, 3),
-        'flat_id' => $faker->numberBetween(1, 5),
         'company' => $faker->company,
         'company_extra' => null,
         'company_ceo' => null,

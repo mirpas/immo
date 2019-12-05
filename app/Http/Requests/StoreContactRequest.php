@@ -24,8 +24,6 @@ class StoreContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'building_id' => 'required',
-            'flat_id' => 'required',
             'company' => 'nullable',
             'company_extra' => 'nullable',
             'company_ceo' => 'nullable',

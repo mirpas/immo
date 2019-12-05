@@ -49,9 +49,5 @@
 @stop
 
 @section('js')
-<script>
-  $(document).ready(function() {
-    $('#meters').DataTable();
-  });
-</script>
+@include('layouts.datatables-js', ['table' => 'meters'])
 @stop

@@ -27,11 +27,11 @@ class MenuServiceProvider extends ServiceProvider
     public function boot(Dispatcher $events)
     {
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add('Gebäude wechseln');
+            //$event->menu->add('Gebäude wechseln');
             $event->menu->add([
                 'text' => Building::find(session('building_id')['building_id'])->short_name,
                 'route' => 'buildings.select.index',
-                'topnav' => false,
+                'topnav' => true,
                 'icon' => 'nav-icon fas fa-exchange-alt'
             ]);
         });

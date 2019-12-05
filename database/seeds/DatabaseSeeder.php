@@ -154,7 +154,7 @@ class DatabaseSeeder extends Seeder
 
         //factory(App\Building::class, 10)->create();
         factory(App\Flat::class, 10)->create();
-        factory(App\Contact::class, 30)->create();
+        factory(App\Contact::class, 50)->create();
         factory(App\Contract::class, 8)->create();
     }
 }

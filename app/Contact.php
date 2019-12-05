@@ -10,8 +10,6 @@ class Contact extends Model
 	use SoftDeletes;
 
     protected $fillable = [
-        'building_id',
-        'flat_id',
         'company',
         'company_extra',
         'company_ceo',
